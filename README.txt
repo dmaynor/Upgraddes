@@ -1,23 +1,45 @@
-Explanation:
+===============================================================================
+                            check_pip.py README
+===============================================================================
 
-	1.	Virtual Environment Check:
-	•	The in_virtualenv() function determines if the script is running inside a virtual environment. It checks for the presence of sys.real_prefix or compares sys.base_prefix and sys.prefix.
-	2.	Running the pip Command:
-	•	The run_pip_command() function executes the pip command with the arguments passed to the script. It uses subprocess.run() to run the command and capture the result.
-	3.	Main Execution:
-	•	The main() function checks if you’re in a virtual environment. If not, it prints a warning message.
-	•	The script then passes the command-line arguments to pip using the run_pip_command() function.
-	4.	Shebang:
-	•	The script starts with the #!/usr/bin/env python3 shebang, making it executable in a Unix-like environment.
+Description:
+-------------
+`check_pip.py` is a Python script that acts as a wrapper around `pip`. It alerts
+you if you are not in a virtual environment, ensuring that you maintain best 
+practices when managing Python dependencies. The script also provides logging,
+dry run capabilities, and detailed information about the current environment.
+
+Author:
+--------
+Written by: David Maynor
+Email: dmaynor@gmail.com
+X (Twitter): @dave_maynor
+
+License:
+--------
+This script is licensed under the MIT License. For more information, see the
+license header in the script file.
+
+Features:
+---------
+1. **Virtual Environment Check**:
+   - Alerts if the script is not running within a virtual environment.
+
+2. **Logging**:
+   - Logs all commands and significant events to `pip_wrapper.log` for auditing.
+
+3. **Dry Run Mode**:
+   - Use the `--dry-run` flag to simulate the pip command without actually 
+     executing it. This is useful for testing or verifying what the command will do.
+
+4. **Environment Transparency**:
+   - Prints and logs details about the current Python executable, whether 
+     you are in a virtual environment, and the environment variables.
+
+5. **Help Command**:
+   - Use the `--help` flag to display a detailed help message explaining the 
+     script's usage, options, and functionality.
 
 Usage:
-
-	1.	Save the script as check_pip.py.
-	2.	Make the script executable:
-
-chmod +x check_pip.py
-
-
-	3.	Run the script with the same arguments you would use with pip:
-
-./check_pip.py install requests
+------
+1. To install a package:
